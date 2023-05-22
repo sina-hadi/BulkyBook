@@ -1,0 +1,27 @@
+﻿@using BulkyBook.Utility
+@model OrderHeader
+
+<form method="post">
+	<input asp-for="PaymentStatus" hidden />
+	<div class="container row pt-4">
+		<div class="col-12 text-center">
+			<h1 class="text-primary text-center">Order Placed Successfully!</h1>
+			Your Order Number is : @Model.Id <br /><br />
+			<img src="~/images/payingDigital.png" width="65%" />
+		</div>
+		<div class="col-12 text-center" style="color:maroon">
+			<br />
+			Your order has been placed successfully! <br />
+		</div>
+		<div class="col-12 col-md-4">
+			@if (Model.PaymentStatus != SD.PaymentStatusDelayedPayment)
+			{
+				<button type="submit" class="btn btn-primary" style="width:150px">Pay</button>
+			}
+			else
+			{
+				<button type="submit" class="btn btn-primary" style="width:150px">Pay Later</button>
+			}
+		</div>
+	</div>
+</form>
